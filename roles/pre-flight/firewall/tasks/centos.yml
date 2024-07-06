@@ -1,0 +1,26 @@
+---
+- name: Ensure firewalld is installed
+  become: true
+  ansible.builtin.yum:
+    name: firewalld
+    state: present
+  when: ansible_distribution in ["RedHat", "CentOS"]
+
+- name: Ensure firewalld is running and enabled
+  become: true
+  ansible.builtin.service:
+    name: firewalld
+    state: started
+    enabled: true
+  
+
+- name: Opening ports in firewalld
+  become: true
+  ansible.posix.firewalld:
+    port: "{{service_ports[item.service].firewalld_port}}/tcp"
+    permanent: true
+    state: enabled
+  with_items: "{{ service }}"
+  loop: "{{ service }}"
+  loop_control:
+    label: "{{ item.service }}"

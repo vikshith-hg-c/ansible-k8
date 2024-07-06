@@ -1,0 +1,25 @@
+---
+- name: Ensure ufw is installed
+  become: true
+  ansible.builtin.apt:
+    name: ufw
+    state: present
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: Ensure ufw is running and enabled
+  become: true
+  ansible.builtin.service:
+    name: ufw
+    state: started
+    enabled: true
+
+- name: Open ports in ufw
+  become: true
+  ansible.builtin.ufw:
+    rule: allow
+    port: "{{service_ports[item.service].ufw_port}}"
+    proto: tcp
+  with_items: "{{ service }}"
+  loop: "{{ service }}"
+  loop_control:
+    label: "{{ item.service }}"

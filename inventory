@@ -1,0 +1,23 @@
+[all]
+node1 ansible_host=192.168.29.241 ansible_hostname=cn01
+node2 ansible_host=192.168.29.242 ansible_hostname=wn01
+node3 ansible_host=192.168.29.243 ansible_hostname=wn02
+node4 ansible_host=192.168.29.244 ansible_hostname=w03
+
+[k8-master]
+node1
+node2
+node4
+
+[k8-worker]
+node2
+node3
+node4
+
+[k8-etd]
+node1
+node2
+node3
+node4
+
+[ha-lb]

@@ -1,0 +1,16 @@
+---
+- name: CentOS/RedHat
+  debug:
+    msg: "CentOS/RedHat"  
+- import_tasks: centos.yml
+  vars:
+    service: "{{etcd_cluster_rules}}"
+  when: ansible_distribution in ["RedHat", "CentOS"]
+
+- name: Ubuntu/Debian
+  debug:
+    msg: "Ubuntu/Debian"
+- import_tasks: ubuntu.yml
+  vars: 
+    service: "{{etcd_cluster_rules}}"
+  when: ansible_distribution in ["Debian", "Ubuntu"]

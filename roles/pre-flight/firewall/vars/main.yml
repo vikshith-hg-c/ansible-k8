@@ -1,0 +1,43 @@
+control_plane_rules:
+  - service: kube-apiserver
+  - service: kube-control-manager
+  - service: kube-scheduler
+
+
+etcd_cluster_rules:
+  - service: etcd
+  
+worker_node_rules:
+  - service: kubelet
+  - service: kube-proxy
+  - service: node-ports
+
+service_ports:
+  kube-apiserver:
+    firewalld_port: 6443
+    ufw_port: 6443
+  kube-scheduler:
+    firewalld_port: 10259
+    ufw_port: 10259
+  kube-control-manager:
+    firewalld_port: 10257
+    ufw_port: 10257
+  etcd:
+    firewalld_port: 2379-2380
+    ufw_port: 2379:2380
+  kubelet:
+    firewalld_port: 10250
+    ufw_port: 10250
+  kube-proxy:
+    firewalld_port: 10256
+    ufw_port: 10256
+  node-ports:
+    firewalld_port: 30000-32767
+    ufw_port: 30000:32767
+
+
+
+
+
+
+

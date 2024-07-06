@@ -1,0 +1,16 @@
+- name: Disable all swap entries in fstab
+  ansible.builtin.replace:
+    path: /etc/fstab
+    regexp: '^\s*([^#]+)\s+swap\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s*$'
+    replace: '# \1 swap \2 \3 \4 \5'
+    register: fstab_updated
+
+- name: Turn off swap
+  ansible.builtin.command: swapoff -a
+  when: fstab_updated.changed
+
+- name: Remove swapfile
+  ansible.builtin.file:
+    path: /swapfile
+    state: absent
+  ignore_errors: true

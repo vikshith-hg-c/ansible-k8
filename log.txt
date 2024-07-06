@@ -1,0 +1,384 @@
+2024-07-06 15:52:18,595 p=12773 u=vikshith n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2024-07-06 15:52:18,809 p=12773 u=vikshith n=ansible | PLAY [PreInstall] ***********************************************************************************************************************************************************
+2024-07-06 15:52:18,835 p=12773 u=vikshith n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************
+2024-07-06 15:52:22,129 p=12773 u=vikshith n=ansible | [WARNING]: Platform linux on host node2 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:52:22,129 p=12773 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:52:22,221 p=12773 u=vikshith n=ansible | [WARNING]: Platform linux on host node3 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:52:22,221 p=12773 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:52:22,278 p=12773 u=vikshith n=ansible | [WARNING]: Platform linux on host node1 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:52:22,278 p=12773 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:52:22,426 p=12773 u=vikshith n=ansible | [WARNING]: Platform linux on host node4 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:52:22,426 p=12773 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:52:22,466 p=12773 u=vikshith n=ansible | TASK [pre-flight/setdns : Generate host entries] ****************************************************************************************************************************
+2024-07-06 15:52:22,535 p=12773 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:52:22,564 p=12773 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:52:22,574 p=12773 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:52:22,577 p=12773 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:52:22,585 p=12773 u=vikshith n=ansible | TASK [pre-flight/setdns : Insert host entries into /etc/hosts] **************************************************************************************************************
+2024-07-06 15:52:22,634 p=12773 u=vikshith n=ansible | fatal: [node1]: FAILED! => {"msg": "The conditional check 'host_entries is defined̀' failed. The error was: template error while templating string: Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'. String: {% if host_entries is defined̀ %} True {% else %} False {% endif %}. Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'\n\nThe error appears to be in '/home/vikshithhg/_wrkdir/ansible-k8/roles/pre-flight/setdns/tasks/main.yml': line 9, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Insert host entries into /etc/hosts\n  ^ here\n"}
+2024-07-06 15:52:22,637 p=12773 u=vikshith n=ansible | fatal: [node2]: FAILED! => {"msg": "The conditional check 'host_entries is defined̀' failed. The error was: template error while templating string: Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'. String: {% if host_entries is defined̀ %} True {% else %} False {% endif %}. Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'\n\nThe error appears to be in '/home/vikshithhg/_wrkdir/ansible-k8/roles/pre-flight/setdns/tasks/main.yml': line 9, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Insert host entries into /etc/hosts\n  ^ here\n"}
+2024-07-06 15:52:22,637 p=12773 u=vikshith n=ansible | fatal: [node3]: FAILED! => {"msg": "The conditional check 'host_entries is defined̀' failed. The error was: template error while templating string: Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'. String: {% if host_entries is defined̀ %} True {% else %} False {% endif %}. Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'\n\nThe error appears to be in '/home/vikshithhg/_wrkdir/ansible-k8/roles/pre-flight/setdns/tasks/main.yml': line 9, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Insert host entries into /etc/hosts\n  ^ here\n"}
+2024-07-06 15:52:22,649 p=12773 u=vikshith n=ansible | fatal: [node4]: FAILED! => {"msg": "The conditional check 'host_entries is defined̀' failed. The error was: template error while templating string: Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'. String: {% if host_entries is defined̀ %} True {% else %} False {% endif %}. Could not load \"defined̀\": 'invalid plugin name: ansible.builtin.defined̀'\n\nThe error appears to be in '/home/vikshithhg/_wrkdir/ansible-k8/roles/pre-flight/setdns/tasks/main.yml': line 9, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Insert host entries into /etc/hosts\n  ^ here\n"}
+2024-07-06 15:52:22,650 p=12773 u=vikshith n=ansible | PLAY RECAP ******************************************************************************************************************************************************************
+2024-07-06 15:52:22,651 p=12773 u=vikshith n=ansible | node1                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-06 15:52:22,651 p=12773 u=vikshith n=ansible | node2                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-06 15:52:22,651 p=12773 u=vikshith n=ansible | node3                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-06 15:52:22,651 p=12773 u=vikshith n=ansible | node4                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-06 15:56:18,945 p=13106 u=vikshith n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2024-07-06 15:56:19,158 p=13106 u=vikshith n=ansible | PLAY [PreInstall] ***********************************************************************************************************************************************************
+2024-07-06 15:56:19,185 p=13106 u=vikshith n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************
+2024-07-06 15:56:22,470 p=13106 u=vikshith n=ansible | [WARNING]: Platform linux on host node1 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:22,470 p=13106 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:56:22,568 p=13106 u=vikshith n=ansible | [WARNING]: Platform linux on host node2 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:22,568 p=13106 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:56:22,570 p=13106 u=vikshith n=ansible | [WARNING]: Platform linux on host node3 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:22,570 p=13106 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:56:22,713 p=13106 u=vikshith n=ansible | [WARNING]: Platform linux on host node4 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:22,713 p=13106 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:56:22,750 p=13106 u=vikshith n=ansible | TASK [pre-flight/setdns : Generate host entries] ****************************************************************************************************************************
+2024-07-06 15:56:22,814 p=13106 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:56:22,837 p=13106 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:56:22,847 p=13106 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:56:22,859 p=13106 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:56:22,867 p=13106 u=vikshith n=ansible | TASK [pre-flight/setdns : Insert host entries into /etc/hosts] **************************************************************************************************************
+2024-07-06 15:56:23,817 p=13106 u=vikshith n=ansible | changed: [node3]
+2024-07-06 15:56:23,838 p=13106 u=vikshith n=ansible | changed: [node2]
+2024-07-06 15:56:25,163 p=13106 u=vikshith n=ansible | fatal: [node4]: FAILED! => {"msg": "Incorrect sudo password"}
+2024-07-06 15:56:25,381 p=13106 u=vikshith n=ansible | fatal: [node1]: FAILED! => {"msg": "Incorrect sudo password"}
+2024-07-06 15:56:25,396 p=13106 u=vikshith n=ansible | TASK [pre-flight/firewall : Set control plane firewall rules] ***************************************************************************************************************
+2024-07-06 15:56:25,414 p=13106 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "Set control plane firewall rules"
+}
+2024-07-06 15:56:25,424 p=13106 u=vikshith n=ansible | ok: [node3] => {
+    "msg": "Set control plane firewall rules"
+}
+2024-07-06 15:56:25,431 p=13106 u=vikshith n=ansible | TASK [pre-flight/firewall : CentOS/RedHat] **********************************************************************************************************************************
+2024-07-06 15:56:25,456 p=13106 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:56:25,463 p=13106 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:56:25,471 p=13106 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is installed] ******************************************************************************************************************
+2024-07-06 15:56:25,499 p=13106 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:56:27,067 p=13106 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:56:27,076 p=13106 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is running and enabled] ********************************************************************************************************
+2024-07-06 15:56:27,103 p=13106 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:56:28,382 p=13106 u=vikshith n=ansible |  [ERROR]: User interrupted execution
+
+2024-07-06 15:56:34,245 p=13361 u=vikshith n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2024-07-06 15:56:34,480 p=13361 u=vikshith n=ansible | PLAY [PreInstall] ***********************************************************************************************************************************************************
+2024-07-06 15:56:34,506 p=13361 u=vikshith n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************
+2024-07-06 15:56:37,029 p=13361 u=vikshith n=ansible | [WARNING]: Platform linux on host node2 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:37,030 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:56:37,201 p=13361 u=vikshith n=ansible | [WARNING]: Platform linux on host node4 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:37,201 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:56:37,328 p=13361 u=vikshith n=ansible | [WARNING]: Platform linux on host node1 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:37,328 p=13361 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:56:38,070 p=13361 u=vikshith n=ansible | [WARNING]: Platform linux on host node3 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-07-06 15:56:38,070 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:56:38,109 p=13361 u=vikshith n=ansible | TASK [pre-flight/setdns : Generate host entries] ****************************************************************************************************************************
+2024-07-06 15:56:38,182 p=13361 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:56:38,194 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:56:38,216 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:56:38,219 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:56:38,228 p=13361 u=vikshith n=ansible | TASK [pre-flight/setdns : Insert host entries into /etc/hosts] **************************************************************************************************************
+2024-07-06 15:56:39,362 p=13361 u=vikshith n=ansible | changed: [node4]
+2024-07-06 15:56:39,510 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:56:39,565 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:56:39,570 p=13361 u=vikshith n=ansible | changed: [node1]
+2024-07-06 15:56:39,598 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Set control plane firewall rules] ***************************************************************************************************************
+2024-07-06 15:56:39,616 p=13361 u=vikshith n=ansible | ok: [node1] => {
+    "msg": "Set control plane firewall rules"
+}
+2024-07-06 15:56:39,631 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "Set control plane firewall rules"
+}
+2024-07-06 15:56:39,645 p=13361 u=vikshith n=ansible | ok: [node3] => {
+    "msg": "Set control plane firewall rules"
+}
+2024-07-06 15:56:39,655 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "Set control plane firewall rules"
+}
+2024-07-06 15:56:39,661 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : CentOS/RedHat] **********************************************************************************************************************************
+2024-07-06 15:56:39,694 p=13361 u=vikshith n=ansible | ok: [node1] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:56:39,711 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:56:39,713 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:56:39,727 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:56:39,735 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is installed] ******************************************************************************************************************
+2024-07-06 15:56:39,791 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:56:39,808 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:56:41,409 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:57:08,927 p=13361 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:57:08,936 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is running and enabled] ********************************************************************************************************
+2024-07-06 15:57:09,023 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:09,040 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:57:10,512 p=13361 u=vikshith n=ansible | changed: [node2]
+2024-07-06 15:57:11,224 p=13361 u=vikshith n=ansible | changed: [node1]
+2024-07-06 15:57:11,235 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Opening ports in firewalld] *********************************************************************************************************************
+2024-07-06 15:57:11,308 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-apiserver) 
+2024-07-06 15:57:11,329 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=kube-apiserver) 
+2024-07-06 15:57:11,330 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-control-manager) 
+2024-07-06 15:57:11,335 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=kube-control-manager) 
+2024-07-06 15:57:11,336 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-scheduler) 
+2024-07-06 15:57:11,338 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:11,342 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=kube-scheduler) 
+2024-07-06 15:57:11,344 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:57:12,453 p=13361 u=vikshith n=ansible | changed: [node2] => (item=kube-apiserver)
+2024-07-06 15:57:12,617 p=13361 u=vikshith n=ansible | changed: [node1] => (item=kube-apiserver)
+2024-07-06 15:57:13,532 p=13361 u=vikshith n=ansible | changed: [node2] => (item=kube-control-manager)
+2024-07-06 15:57:13,707 p=13361 u=vikshith n=ansible | changed: [node1] => (item=kube-control-manager)
+2024-07-06 15:57:14,512 p=13361 u=vikshith n=ansible | changed: [node2] => (item=kube-scheduler)
+2024-07-06 15:57:14,679 p=13361 u=vikshith n=ansible | changed: [node1] => (item=kube-scheduler)
+2024-07-06 15:57:14,689 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ubuntu/Debian] **********************************************************************************************************************************
+2024-07-06 15:57:14,719 p=13361 u=vikshith n=ansible | ok: [node1] => {
+    "msg": "Ubuntu/Debian"
+}
+2024-07-06 15:57:14,738 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "Ubuntu/Debian"
+}
+2024-07-06 15:57:14,739 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:14,753 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "Ubuntu/Debian"
+}
+2024-07-06 15:57:14,760 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure ufw is installed] ************************************************************************************************************************
+2024-07-06 15:57:14,793 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:14,806 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:57:14,807 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:16,155 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:57:16,164 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure ufw is running and enabled] **************************************************************************************************************
+2024-07-06 15:57:16,189 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:16,216 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:57:16,217 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:18,336 p=13361 u=vikshith n=ansible | changed: [node4]
+2024-07-06 15:57:18,345 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Open ports in ufw] ******************************************************************************************************************************
+2024-07-06 15:57:18,377 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kube-apiserver) 
+2024-07-06 15:57:18,379 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kube-control-manager) 
+2024-07-06 15:57:18,385 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kube-scheduler) 
+2024-07-06 15:57:18,387 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=kube-apiserver) 
+2024-07-06 15:57:18,394 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=kube-control-manager) 
+2024-07-06 15:57:18,399 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=kube-scheduler) 
+2024-07-06 15:57:18,404 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:18,405 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:57:18,407 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-apiserver) 
+2024-07-06 15:57:18,410 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-control-manager) 
+2024-07-06 15:57:18,414 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-scheduler) 
+2024-07-06 15:57:18,415 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:19,447 p=13361 u=vikshith n=ansible | changed: [node4] => (item=kube-apiserver)
+2024-07-06 15:57:20,296 p=13361 u=vikshith n=ansible | changed: [node4] => (item=kube-control-manager)
+2024-07-06 15:57:21,125 p=13361 u=vikshith n=ansible | changed: [node4] => (item=kube-scheduler)
+2024-07-06 15:57:21,133 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Set worker nodes rules firewall rules] **********************************************************************************************************
+2024-07-06 15:57:21,163 p=13361 u=vikshith n=ansible | ok: [node1] => {
+    "msg": "Set worker nodes rules firewall rules"
+}
+2024-07-06 15:57:21,180 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "Set worker nodes rules firewall rules"
+}
+2024-07-06 15:57:21,180 p=13361 u=vikshith n=ansible | ok: [node3] => {
+    "msg": "Set worker nodes rules firewall rules"
+}
+2024-07-06 15:57:21,190 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "Set worker nodes rules firewall rules"
+}
+2024-07-06 15:57:21,196 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : CentOS/RedHat] **********************************************************************************************************************************
+2024-07-06 15:57:21,225 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:21,242 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:57:21,244 p=13361 u=vikshith n=ansible | ok: [node3] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:57:21,255 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "CentOS/RedHat"
+}
+2024-07-06 15:57:21,261 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is installed] ******************************************************************************************************************
+2024-07-06 15:57:21,291 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:21,326 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:57:22,829 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:57:51,896 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:57:51,903 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is running and enabled] ********************************************************************************************************
+2024-07-06 15:57:51,921 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:51,971 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:57:52,882 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:57:53,526 p=13361 u=vikshith n=ansible | changed: [node3]
+2024-07-06 15:57:53,535 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Opening ports in firewalld] *********************************************************************************************************************
+2024-07-06 15:57:53,569 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kubelet) 
+2024-07-06 15:57:53,578 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kube-proxy) 
+2024-07-06 15:57:53,589 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=node-ports) 
+2024-07-06 15:57:53,598 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:53,628 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=kubelet) 
+2024-07-06 15:57:53,638 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=kube-proxy) 
+2024-07-06 15:57:53,648 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=node-ports) 
+2024-07-06 15:57:53,649 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:57:54,661 p=13361 u=vikshith n=ansible | changed: [node2] => (item=kubelet)
+2024-07-06 15:57:54,765 p=13361 u=vikshith n=ansible | changed: [node3] => (item=kubelet)
+2024-07-06 15:57:55,656 p=13361 u=vikshith n=ansible | changed: [node2] => (item=kube-proxy)
+2024-07-06 15:57:55,757 p=13361 u=vikshith n=ansible | changed: [node3] => (item=kube-proxy)
+2024-07-06 15:57:58,097 p=13361 u=vikshith n=ansible | changed: [node2] => (item=node-ports)
+2024-07-06 15:57:58,109 p=13361 u=vikshith n=ansible | changed: [node3] => (item=node-ports)
+2024-07-06 15:57:58,116 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ubuntu/Debian] **********************************************************************************************************************************
+2024-07-06 15:57:58,133 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:58,164 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "Ubuntu/Debian"
+}
+2024-07-06 15:57:58,167 p=13361 u=vikshith n=ansible | ok: [node3] => {
+    "msg": "Ubuntu/Debian"
+}
+2024-07-06 15:57:58,179 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "Ubuntu/Debian"
+}
+2024-07-06 15:57:58,188 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure ufw is installed] ************************************************************************************************************************
+2024-07-06 15:57:58,207 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:58,226 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:57:58,239 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:57:59,377 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:57:59,385 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure ufw is running and enabled] **************************************************************************************************************
+2024-07-06 15:57:59,402 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:57:59,419 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:57:59,435 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:00,117 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:58:00,124 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Open ports in ufw] ******************************************************************************************************************************
+2024-07-06 15:58:00,149 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kubelet) 
+2024-07-06 15:58:00,150 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=kube-proxy) 
+2024-07-06 15:58:00,157 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=node-ports) 
+2024-07-06 15:58:00,162 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:00,166 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=kubelet) 
+2024-07-06 15:58:00,176 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=kube-proxy) 
+2024-07-06 15:58:00,182 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=node-ports) 
+2024-07-06 15:58:00,190 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kubelet) 
+2024-07-06 15:58:00,191 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:00,193 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=kube-proxy) 
+2024-07-06 15:58:00,198 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=node-ports) 
+2024-07-06 15:58:00,199 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:01,066 p=13361 u=vikshith n=ansible | changed: [node4] => (item=kubelet)
+2024-07-06 15:58:01,889 p=13361 u=vikshith n=ansible | changed: [node4] => (item=kube-proxy)
+2024-07-06 15:58:02,727 p=13361 u=vikshith n=ansible | changed: [node4] => (item=node-ports)
+2024-07-06 15:58:02,960 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Set etcd cluster rules] *************************************************************************************************************************
+2024-07-06 15:58:02,979 p=13361 u=vikshith n=ansible | ok: [node1] => {
+    "msg": "Set etcd nodes rules firewall rules"
+}
+2024-07-06 15:58:02,992 p=13361 u=vikshith n=ansible | ok: [node2] => {
+    "msg": "Set etcd nodes rules firewall rules"
+}
+2024-07-06 15:58:03,007 p=13361 u=vikshith n=ansible | ok: [node3] => {
+    "msg": "Set etcd nodes rules firewall rules"
+}
+2024-07-06 15:58:03,018 p=13361 u=vikshith n=ansible | ok: [node4] => {
+    "msg": "Set etcd nodes rules firewall rules"
+}
+2024-07-06 15:58:03,024 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : CentOS/RedHat] **********************************************************************************************************************************
+2024-07-06 15:58:03,041 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,053 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,066 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,076 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,083 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is installed] ******************************************************************************************************************
+2024-07-06 15:58:03,116 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,130 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,131 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,140 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,148 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure firewalld is running and enabled] ********************************************************************************************************
+2024-07-06 15:58:03,175 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,208 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,209 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,219 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,225 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Opening ports in firewalld] *********************************************************************************************************************
+2024-07-06 15:58:03,249 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=etcd) 
+2024-07-06 15:58:03,259 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,262 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=etcd) 
+2024-07-06 15:58:03,276 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,278 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=etcd) 
+2024-07-06 15:58:03,279 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,291 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=etcd) 
+2024-07-06 15:58:03,293 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,299 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ubuntu/Debian] **********************************************************************************************************************************
+2024-07-06 15:58:03,327 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,346 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,347 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,357 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,365 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure ufw is installed] ************************************************************************************************************************
+2024-07-06 15:58:03,400 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,414 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,416 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,425 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,432 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Ensure ufw is running and enabled] **************************************************************************************************************
+2024-07-06 15:58:03,449 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,462 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,475 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,486 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,492 p=13361 u=vikshith n=ansible | TASK [pre-flight/firewall : Open ports in ufw] ******************************************************************************************************************************
+2024-07-06 15:58:03,515 p=13361 u=vikshith n=ansible | skipping: [node1] => (item=etcd) 
+2024-07-06 15:58:03,526 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:03,534 p=13361 u=vikshith n=ansible | skipping: [node2] => (item=etcd) 
+2024-07-06 15:58:03,543 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:03,546 p=13361 u=vikshith n=ansible | skipping: [node3] => (item=etcd) 
+2024-07-06 15:58:03,547 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:03,559 p=13361 u=vikshith n=ansible | skipping: [node4] => (item=etcd) 
+2024-07-06 15:58:03,560 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:03,583 p=13361 u=vikshith n=ansible | TASK [pre-flight/selinux : Set SELinux to disabled mode (CentOS/RedHat)] ****************************************************************************************************
+2024-07-06 15:58:03,649 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:04,933 p=13361 u=vikshith n=ansible | [WARNING]: SELinux state temporarily changed from 'enforcing' to 'permissive'. State change will take effect next reboot.
+
+2024-07-06 15:58:04,933 p=13361 u=vikshith n=ansible | changed: [node1]
+2024-07-06 15:58:05,009 p=13361 u=vikshith n=ansible | changed: [node3]
+2024-07-06 15:58:05,011 p=13361 u=vikshith n=ansible | changed: [node2]
+2024-07-06 15:58:05,019 p=13361 u=vikshith n=ansible | TASK [pre-flight/selinux : Modify SELinux configuration (CentOS/RedHat)] ****************************************************************************************************
+2024-07-06 15:58:05,098 p=13361 u=vikshith n=ansible | skipping: [node4]
+2024-07-06 15:58:05,987 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:58:06,012 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:58:06,056 p=13361 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:58:06,064 p=13361 u=vikshith n=ansible | TASK [pre-flight/selinux : Set apparmor to diabled mode (Ubuntu/Debian)] ****************************************************************************************************
+2024-07-06 15:58:06,082 p=13361 u=vikshith n=ansible | skipping: [node1]
+2024-07-06 15:58:06,098 p=13361 u=vikshith n=ansible | skipping: [node2]
+2024-07-06 15:58:06,113 p=13361 u=vikshith n=ansible | skipping: [node3]
+2024-07-06 15:58:08,314 p=13361 u=vikshith n=ansible | changed: [node4]
+2024-07-06 15:58:08,321 p=13361 u=vikshith n=ansible | TASK [pre-flight/selinux : Reboot the system to apply SELinux changes] ******************************************************************************************************
+2024-07-06 15:58:43,540 p=13361 u=vikshith n=ansible | changed: [node4]
+2024-07-06 15:58:53,998 p=13361 u=vikshith n=ansible | changed: [node2]
+2024-07-06 15:59:02,953 p=13361 u=vikshith n=ansible | changed: [node1]
+2024-07-06 15:59:03,693 p=13361 u=vikshith n=ansible | changed: [node3]
+2024-07-06 15:59:03,701 p=13361 u=vikshith n=ansible | TASK [pre-flight/selinux : Wait for system to become reachable] *************************************************************************************************************
+2024-07-06 15:59:05,237 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:59:05,322 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:59:05,346 p=13361 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:59:05,359 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:59:05,370 p=13361 u=vikshith n=ansible | TASK [pre-flight/selinux : ping ansible.builtin.service] ********************************************************************************************************************
+2024-07-06 15:59:06,294 p=13361 u=vikshith n=ansible | ok: [node4]
+2024-07-06 15:59:06,454 p=13361 u=vikshith n=ansible | ok: [node1]
+2024-07-06 15:59:06,484 p=13361 u=vikshith n=ansible | ok: [node3]
+2024-07-06 15:59:06,493 p=13361 u=vikshith n=ansible | ok: [node2]
+2024-07-06 15:59:06,619 p=13361 u=vikshith n=ansible | PLAY RECAP ******************************************************************************************************************************************************************
+2024-07-06 15:59:06,619 p=13361 u=vikshith n=ansible | node1                      : ok=16   changed=5    unreachable=0    failed=0    skipped=20   rescued=0    ignored=0   
+2024-07-06 15:59:06,620 p=13361 u=vikshith n=ansible | node2                      : ok=21   changed=5    unreachable=0    failed=0    skipped=15   rescued=0    ignored=0   
+2024-07-06 15:59:06,620 p=13361 u=vikshith n=ansible | node3                      : ok=16   changed=4    unreachable=0    failed=0    skipped=20   rescued=0    ignored=0   
+2024-07-06 15:59:06,620 p=13361 u=vikshith n=ansible | node4                      : ok=20   changed=6    unreachable=0    failed=0    skipped=16   rescued=0    ignored=0   

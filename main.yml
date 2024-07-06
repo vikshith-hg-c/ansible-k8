@@ -1,0 +1,20 @@
+---
+- name: PreInstall 
+  hosts: all
+  roles:
+    - {role: pre-flight/setdns, tags: always}
+    - {role: pre-flight/firewall, tags: always}
+    - {role: pre-flight/swapoff, tags: always}
+    - {role: pre-flight/selinux, tags: always}
+
+- name: Download Componenets
+  hosts: all
+  roles:
+    -
+- name: Prepare control Plane
+  hosts: k8-master
+  roles:
+    - {}
+    
+
+

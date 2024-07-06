@@ -1,0 +1,47 @@
+---
+- name: Set SELinux to disabled mode (CentOS/RedHat)
+  become: true
+  ansible.posix.selinux:
+    policy: targeted
+    state: disabled
+  when: 
+    - ansible_os_family == "RedHat"
+  register: sechanged_redhat
+
+- name: Modify SELinux configuration (CentOS/RedHat)
+  become: true
+  lineinfile:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    line: 'SELINUX=disabled'
+  when: 
+    - ansible_os_family == "RedHat"
+  register: selinux_config_changed
+
+
+- name: Set apparmor to diabled mode (Ubuntu/Debian)
+  become: true
+  ansible.builtin.service:
+    name: apparmor
+    state: stopped
+    enabled: false
+  when: 
+    - ansible_os_family == "Debian"
+  register: apparmor_disabled
+
+- name: Reboot the system to apply SELinux changes
+  become: true
+  reboot:
+    msg: "Rebooting to apply SELinux disabled mode"
+    reboot_timeout: 200  # This is the timeout for the reboot task, not the wait time
+  when: 
+    - ansible_os_family in ["RedHat", "Debian"]
+    - (ansible_os_family == "RedHat" and sechanged_redhat.changed or selinux_config_changed.changed) or (ansible_os_family == "Debian" and apparmor_disabled.changed)
+
+- name: Wait for system to become reachable
+  become: true
+  wait_for_connection:
+    timeout: 200  # Wait for 3 minutes and 20 seconds
+
+- name: ping ansible.builtin.service
+  ansible.builtin.ping:

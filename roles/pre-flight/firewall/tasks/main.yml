@@ -1,0 +1,18 @@
+---
+- name: Set control plane firewall rules
+  debug:
+    msg: "Set control plane firewall rules"
+- import_tasks: cp-firewall.yml
+  when: "'k8-master' in group_names"
+
+- name: Set worker nodes rules firewall rules
+  debug:
+    msg: "Set worker nodes rules firewall rules"
+- import_tasks: worker-firewall.yml
+  when: "'k8-worker' in group_names"
+
+- name: Set etcd cluster rules
+  debug:
+    msg: "Set etcd nodes rules firewall rules"
+- import_tasks: etcd-firewall.yml
+  when: "'k8-etcd' in group_names"
