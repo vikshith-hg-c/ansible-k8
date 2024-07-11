@@ -1,0 +1,17 @@
+
+- name: Gather facts
+  ansible.builtin.setup:
+    gather_subset:
+      - '!all'
+      - hardware
+  register: sys_facts
+
+- name: Set image_arch fact
+  set_fact:
+    image_arch: "{{ sys_facts.ansible_facts['ansible_architecture'] }}"
+
+- name: Create a temporary directory for download
+  file:
+    path: /tmp/kubernetes
+    state: directory
+    mode: '0755'

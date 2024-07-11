@@ -1,20 +1,29 @@
 ---
-- name: PreInstall 
-  hosts: all
-  roles:
-    - {role: pre-flight/setdns, tags: always}
-    - {role: pre-flight/firewall, tags: always}
-    - {role: pre-flight/swapoff, tags: always}
-    - {role: pre-flight/selinux, tags: always}
+#- name: PreInstall 
+#  hosts: all
+#  roles:
+#    - {role: pre-flight/setdns, tags: always}
+#    - {role: pre-flight/firewall, tags: always}
+#    - {role: pre-flight/swapoff, tags: always}
+#    - {role: pre-flight/selinux, tags: always}
 
-- name: Download Componenets
+- name: Download components
   hosts: all
+  vars_files:
+    - vars/k8-cluster.yml
   roles:
-    -
-- name: Prepare control Plane
-  hosts: k8-master
-  roles:
-    - {}
-    
+    - { role: download }
+
+#- name: install etcd cluster
+#  hosts: k8-etd
+#  vars_files: vars/k8-cluster.yml
+#  roles: 
+#    - {}
+#
+#- name: Prepare control Plane
+#  hosts: k8-master
+#  roles:
+#    - {}
+#    
 
 

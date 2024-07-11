@@ -1,0 +1,20 @@
+- name: Download component
+  ansible.builtin.get_url:
+    url: "{{ item.value }}"
+    dest: "/tmp/kubernetes/{{ item.key }}"
+    mode: '0755'
+    creates: "/tmp/kubernetes/{{ item.key }}"
+  loop: "{{ components }}"
+  loop_control:
+    loop_var: item
+  when: item.key is not undefined
+
+- name: Extract tarball if it is a tar.gz file
+  ansible.builtin.unarchive:
+    src: "/tmp/kubernetes/{{ item.key }}"
+    dest: "{{download_dir}}"
+    remote_src: yes
+  loop: "{{ components }}"
+  loop_control:
+    loop_var: item
+  when: item.key is not undefined and item.value.url | regex_search('.*\.tar\.gz$')

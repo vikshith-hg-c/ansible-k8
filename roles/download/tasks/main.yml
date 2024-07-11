@@ -1,0 +1,38 @@
+---
+- name: gather and set facts
+  debug:
+    msg: seting fatcs
+- import_tasks: gatherfacts.yml
+
+- name: Download images for control-plane
+  debug:
+    msg: "Download images for control-plane"
+- import_tasks: download-file.yml
+  vars:
+    components: "{{ req_downloads.all_nodes}}"
+  when: "'all' in group_names"
+
+- name: Download images for control-plane
+  debug:
+    msg: "Download images for control-plane"
+- import_tasks: download-file.yml
+  vars:
+    components: "{{ req_downloads.control_plane_components}}"
+  when: "'k8-master' in group_names"
+
+
+- name: Download images for worker-node
+  debug:
+    msg: "Download images for worker-node"
+- import_tasks: download-file.yml
+  vars:
+    components: "{{ req_downloads.worker_node_components}}"
+  when: "'k8-worker' in group_names"
+
+- name: Download images for etcd
+  debug:
+    msg: "Download images for etcd"
+- import_tasks: download-file.yml
+  vars:
+    components: "{{ req_downloads.etcd_components}}"
+  when: "'k8-etd' in group_names"

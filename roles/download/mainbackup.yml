@@ -1,0 +1,49 @@
+---
+- name: Download Kubernetes components
+  hosts: all
+  become: true
+  vars_files:
+    - ../../vars/k8-cluster.yml
+
+  pre_tasks:
+    - name: Gather facts
+      ansible.builtin.setup:
+        gather_subset:
+          - 'hardware'
+          - 'network'
+          - 'virtual'
+      register: sys_facts
+
+    - name: Set image_arch fact
+      ansible.builtin.set_fact:
+        image_arch: "{{ sys_facts['ansible_architecture'] }}"
+
+    
+
+  tasks:
+    - name: Download images for control-plane
+      debug:
+        msg: "Download images for control-plane"
+    - import_tasks: download-file.yml
+      vars:
+        components: "{{ req_downloads.control_plane_components | map('dict2items') | list | flatten(levels=1) }}"
+        download_dir: "/tmp/kubernetes"
+      when: "'k8-master' in group_names"
+
+    - name: Download images for worker-node
+      debug:
+        msg: "Download images for worker-node"
+    - import_tasks: download-file.yml
+      vars:
+        components: "{{ req_downloads.worker_node_components | map('dict2items') | list | flatten(levels=1) }}"
+        download_dir: "/tmp/kubernetes"
+      when: "'k8-worker' in group_names"
+
+    - name: Download images for etcd
+      debug:
+        msg: "Download images for etcd"
+    - import_tasks: download-file.yml
+      vars:
+        components: "{{ req_downloads.etcd_components | map('dict2items') | list | flatten(levels=1) }}"
+        download_dir: "/tmp/kubernetes"
+      when: "'k8-etd' in group_names"
